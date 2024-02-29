@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-
     <title>Bootstrap Sandbox | Toasts</title>
   </head>
   <body>
@@ -13,9 +12,36 @@
       <h1 class="mb-5">Toasts</h1>
 
       <!-- Don't go past here -->
+      <div class="btn btn-primary" id="toastBtn">Show Toast</div>
+
+      <div class="toast-container position-fixed bottom-0 end-0">
+        <div class="toast" id="myToast">
+          <div class="toast-header text-bg-danger">
+            <div class="me-auto">Bootstrap</div>
+            <small>11 Minutes ago</small>
+          </div>
+          <div class="toast-body text-bg-danger">
+            Hello World This is a toast notification
+          </div>
+        </div>
+      </div>
+
     </div>
     <div style="margin-top: 350px"></div>
 
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const toastTrigger = document.querySelector('#toastBtn');
+      const myToast = document.querySelector('#myToast');
+
+      if(toastTrigger){
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(myToast);
+
+        toastTrigger.addEventListener('click', () => {
+          toastBootstrap.show()
+        })
+      }
+    </script>
   </body>
 </html>
